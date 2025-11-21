@@ -34,7 +34,7 @@ COPY --from=build /app/.next ./.next
 COPY --from=build /app/public ./public
 
 # Expose Next.js default port
-EXPOSE 3000
+EXPOSE 3001
 
 USER app
 
