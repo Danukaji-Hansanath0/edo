@@ -1,0 +1,11 @@
+[build]
+nixpacks = false
+
+[phases.setup]
+nixPacksImage = "node:20-alpine"
+
+[phases.build]
+cmds = ["npm ci", "npm run build"]
+
+[start]
+cmd = "npm start"
