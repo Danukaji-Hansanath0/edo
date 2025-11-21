@@ -34,3 +34,67 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Docker
+
+This project includes a production-ready multi-stage `Dockerfile`.
+
+### Build image
+
+```bash
+docker build -t edo-app:latest .
+```
+
+### Run container
+
+```bash
+docker run --rm -p 3000:3000 edo-app:latest
+```
+
+Open http://localhost:3000.
+
+### Passing environment variables
+
+```bash
+docker run --rm -p 3000:3000 -e NODE_ENV=production -e CUSTOM_VAR=value edo-app:latest
+```
+
+Alternatively create an `.env` file and use `--env-file .env`.
+
+### Docker Compose
+
+A `docker-compose.yml` is provided for convenience:
+
+```bash
+docker compose up --build
+```
+
+Stop with:
+
+```bash
+docker compose down
+```
+
+### Development in Docker (optional)
+
+For rapid iteration you can mount the source and run the dev server. Uncomment the `volumes:` section in `docker-compose.yml` and change the command:
+
+```yaml
+services:
+	web:
+		build: .
+		command: npm run dev
+		volumes:
+			- ./:/app
+		ports:
+			- "3000:3000"
+```
+
+Then run `docker compose up` and edit locally.
+
+### Image size optimization tips
+
+- Use a lockfile (package-lock.json) for better layer caching.
+- Avoid copying unnecessary files via `.dockerignore`.
+- Multi-stage build keeps only runtime necessities.
+
