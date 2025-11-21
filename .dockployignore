@@ -1,1 +1,3 @@
+# Force Dockploy to use custom Dockerfile instead of Nixpacks
 nixpacks = false
+NIXPACKS_NO_DEFAULT_PKGS = true

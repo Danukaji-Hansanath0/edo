@@ -1,11 +1,10 @@
+# Disable Nixpacks completely - use Dockerfile instead
 [build]
 nixpacks = false
 
+# If Nixpacks is still used (fallback), force Node 20
+[variables]
+NODE_VERSION = "20.9.0"
+
 [phases.setup]
 nixPacksImage = "node:20-alpine"
-
-[phases.build]
-cmds = ["npm ci", "npm run build"]
-
-[start]
-cmd = "npm start"

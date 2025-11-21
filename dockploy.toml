@@ -1,0 +1,5 @@
+docker build -f Dockerfile -t edo-app .# This file tells Dockploy deployment settings
+# Force use of custom Dockerfile
+DOCKERFILE_PATH=./Dockerfile
+BUILD_COMMAND=docker build -f Dockerfile -t app .
+PORT=3000
