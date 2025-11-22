@@ -101,7 +101,7 @@
 // //         return;
 // //       }
 
-// //       const res = await fetch('http://51.75.119.133:8080/api/Sales', {
+// //       const res = await fetch('http://51.75.119.133:5001/api/Sales', {
 // //         method: 'GET',
 // //         headers: {
 // //           Authorization: `Bearer ${token}`,
@@ -187,7 +187,7 @@
 // //       if (!invoice) continue;
 
 // //       try {
-// //         const res = await fetch(`http://51.75.119.133:8080/api/Approval/sales/${invoice.id}`, {
+// //         const res = await fetch(`http://51.75.119.133:5001/api/Approval/sales/${invoice.id}`, {
 // //           method: 'GET',
 // //           headers: {
 // //             'Authorization': `Bearer ${token}`,
@@ -365,7 +365,7 @@
 // //       };
 
 // //       try {
-// //         const res = await fetch('http://51.75.119.133:8080/api/Payment', {
+// //         const res = await fetch('http://51.75.119.133:5001/api/Payment', {
 // //           method: 'POST',
 // //           headers: {
 // //             'Authorization': `Bearer ${token}`,
@@ -905,7 +905,7 @@
 //         return;
 //       }
 
-//       const res = await fetch('http://51.75.119.133:8080/api/Sales', {
+//       const res = await fetch('http://51.75.119.133:5001/api/Sales', {
 //         method: 'GET',
 //         headers: {
 //           Authorization: `Bearer ${token}`,
@@ -1021,7 +1021,7 @@
 //       if (!invoice) continue;
 
 //       try {
-//         const res = await fetch(`http://51.75.119.133:8080/api/Approval/sales/${invoice.id}`, {
+//         const res = await fetch(`http://51.75.119.133:5001/api/Approval/sales/${invoice.id}`, {
 //           method: 'GET',
 //           headers: {
 //             'Authorization': `Bearer ${token}`,
@@ -1177,7 +1177,7 @@
 //       };
 
 //       try {
-//         const res = await fetch('http://51.75.119.133:8080/api/Payment', {
+//         const res = await fetch('http://51.75.119.133:5001/api/Payment', {
 //           method: 'POST',
 //           headers: {
 //             'Authorization': `Bearer ${token}`,
@@ -1802,7 +1802,7 @@ export default function InvoicesDashboard() {
         return;
       }
 
-      const res = await fetch('http://51.75.119.133:8080/api/Sales', {
+      const res = await fetch('http://51.75.119.133:5001/api/Sales', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -1918,7 +1918,7 @@ export default function InvoicesDashboard() {
       if (!invoice) continue;
 
       try {
-        const res = await fetch(`http://51.75.119.133:8080/api/Approval/sales/${invoice.id}`, {
+        const res = await fetch(`http://51.75.119.133:5001/api/Approval/sales/${invoice.id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -2074,7 +2074,7 @@ export default function InvoicesDashboard() {
       };
 
       try {
-        const res = await fetch('http://51.75.119.133:8080/api/Payment', {
+        const res = await fetch('http://51.75.119.133:5001/api/Payment', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,

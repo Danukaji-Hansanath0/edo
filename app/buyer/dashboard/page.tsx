@@ -90,7 +90,7 @@ export default function BuyerDashboard() {
         const token = localStorage.getItem('authToken');
         if (!token) return router.push('/login');
 
-        const res = await fetch('http://51.75.119.133:8080/api/Sales/approved', {
+        const res = await fetch('http://51.75.119.133:5001/api/Sales/approved', {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
         });
 

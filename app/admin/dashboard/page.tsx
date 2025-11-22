@@ -835,7 +835,7 @@ export default function AdminDashboard() {
     if (!authToken) return;
     setBuyersLoading(true);
     try {
-      const res = await fetch('http://51.75.119.133:8080/api/Buyer', {
+      const res = await fetch('http://51.75.119.133:5001/api/Buyer', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const txt = await res.text();
@@ -858,7 +858,7 @@ export default function AdminDashboard() {
     if (!authToken) return;
     setUsersLoading(true);
     try {
-      const res = await fetch('http://51.75.119.133:8080/api/v1/User', {
+      const res = await fetch('http://51.75.119.133:5001/api/v1/User', {
         headers: {
           'Authorization': `Bearer ${authToken}`,
           'Accept': 'application/json'
@@ -893,7 +893,7 @@ export default function AdminDashboard() {
     if (!authToken) return;
     setSalesLoading(true);
     try {
-      const res = await fetch('http://51.75.119.133:8080/api/Sales', {
+      const res = await fetch('http://51.75.119.133:5001/api/Sales', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const txt = await res.text();
@@ -938,7 +938,7 @@ export default function AdminDashboard() {
     setPendingSalesLoading(true);
     try {
       console.log('Fetching pending sales with token:', authToken.substring(0, 10) + '...');
-      const res = await fetch('http://51.75.119.133:8080/api/Sales/pending', {
+      const res = await fetch('http://51.75.119.133:5001/api/Sales/pending', {
         headers: {
           'Authorization': `Bearer ${authToken.trim()}`,
           'Accept': 'application/json',
@@ -988,7 +988,7 @@ export default function AdminDashboard() {
     if (!authToken) return;
     setPendingPaymentsLoading(true);
     try {
-      const res = await fetch('http://51.75.119.133:8080/api/Payment/admin/all?status=0', {
+      const res = await fetch('http://51.75.119.133:5001/api/Payment/admin/all?status=0', {
         headers: {
           'Authorization': `Bearer ${authToken}`,
           'Accept': 'application/json'
@@ -1042,7 +1042,7 @@ export default function AdminDashboard() {
     if (!authToken) return;
     setProcessingPaymentId(0); // Using 0 as a general loading indicator
     try {
-      const res = await fetch(`http://51.75.119.133:8080/api/Payment/sales-txn/${salesId}`, {
+      const res = await fetch(`http://51.75.119.133:5001/api/Payment/sales-txn/${salesId}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
           'Accept': 'application/json'
@@ -1091,7 +1091,7 @@ export default function AdminDashboard() {
     if (!selectedPendingPayment || !authToken) return;
     setProcessingPaymentId(selectedPendingPayment.id);
     try {
-      const response = await fetch('http://51.75.119.133:8080/api/Payment/approve', {
+      const response = await fetch('http://51.75.119.133:5001/api/Payment/approve', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1187,7 +1187,7 @@ export default function AdminDashboard() {
     }
     setCreateBuyerLoading(true);
     try {
-      const res = await fetch('http://51.75.119.133:8080/api/Buyer', {
+      const res = await fetch('http://51.75.119.133:5001/api/Buyer', {
         method: 'POST',
         headers: {
           accept: 'text/plain',
@@ -1220,7 +1220,7 @@ export default function AdminDashboard() {
     if (!selectedBuyer) return;
     setEditBuyerLoading(true);
     try {
-      const res = await fetch(`http://51.75.119.133:8080/api/Buyer/${selectedBuyer.buyerCode}`, {
+      const res = await fetch(`http://51.75.119.133:5001/api/Buyer/${selectedBuyer.buyerCode}`, {
         method: 'PUT',
         headers: {
           accept: 'text/plain',
@@ -1255,7 +1255,7 @@ export default function AdminDashboard() {
     }
     setDeleteBuyerLoading(true);
     try {
-      const res = await fetch(`http://51.75.119.133:8080/api/Buyer/${encodeURIComponent(selectedBuyer.buyerCode)}`, {
+      const res = await fetch(`http://51.75.119.133:5001/api/Buyer/${encodeURIComponent(selectedBuyer.buyerCode)}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });
@@ -1283,7 +1283,7 @@ export default function AdminDashboard() {
     }
     setCreateUserLoading(true);
     try {
-      const res = await fetch('http://51.75.119.133:8080/api/Auth/register-user', {
+      const res = await fetch('http://51.75.119.133:5001/api/Auth/register-user', {
         method: 'POST',
         headers: {
           accept: 'text/plain',
@@ -1325,7 +1325,7 @@ export default function AdminDashboard() {
     }
     setEditUserLoading(true);
     try {
-      const res = await fetch(`http://51.75.119.133:8080/api/v1/User/${selectedUser.id}`, {
+      const res = await fetch(`http://51.75.119.133:5001/api/v1/User/${selectedUser.id}`, {
         method: 'PUT',
         headers: {
           accept: 'text/plain',
@@ -1361,7 +1361,7 @@ export default function AdminDashboard() {
     }
     setDeleteUserLoading(true);
     try {
-      const res = await fetch(`http://51.75.119.133:8080/api/v1/User/${selectedUser.id}`, {
+      const res = await fetch(`http://51.75.119.133:5001/api/v1/User/${selectedUser.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -1429,7 +1429,7 @@ export default function AdminDashboard() {
     try {
       console.log('Processing sale approval:', { saleId, isApproved, remarks });
 
-      const response = await fetch('http://51.75.119.133:8080/api/Approval/approve-sales', {
+      const response = await fetch('http://51.75.119.133:5001/api/Approval/approve-sales', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1530,7 +1530,7 @@ export default function AdminDashboard() {
 
       for (const saleId of selectedSales) {
         try {
-          const response = await fetch('http://51.75.119.133:8080/api/Approval/approve-sales', {
+          const response = await fetch('http://51.75.119.133:5001/api/Approval/approve-sales', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
